@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Anne-Marie Menzel begleitet Menschen, Familien und Unternehmen in Würzburg mit Psychotherapie nach dem Heilpraktikergesetz, Beratung und betrieblichem Gesundheitsmanagement.">
+  <title>Anne-Marie Menzel | Psychotherapie, Beratung & BGM in Würzburg</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #213229;
+      --muted: #65756b;
+      --paper: #f8f3ea;
+      --surface: #fffdf8;
+      --surface-2: #efe7d8;
+      --line: rgba(33, 50, 41, .14);
+      --accent: #8aa083;
+      --accent-strong: #576f50;
+      --accent-soft: #d9e2d1;
+      --gold: #c7a46a;
+      --rose: #c58373;
+      --shadow: 0 30px 80px rgba(48, 60, 47, .16);
+      --radius: 28px;
+      --font-display: Georgia, "Times New Roman", serif;
+      --font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body[data-theme="business"] {
+      --ink: #13232b;
+      --muted: #5e7078;
+      --paper: #f4f7f7;
+      --surface: #ffffff;
+      --surface-2: #e7eeee;
+      --line: rgba(19, 35, 43, .14);
+      --accent: #1f7782;
+      --accent-strong: #11515b;
+      --accent-soft: #d9edf0;
+      --gold: #d1984d;
+      --rose: #8878c9;
+      --shadow: 0 30px 90px rgba(17, 81, 91, .16);
+      --radius: 18px;
+      --font-display: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 10%, color-mix(in srgb, var(--accent-soft) 80%, transparent), transparent 28%),
+        radial-gradient(circle at 88% 18%, color-mix(in srgb, var(--rose) 20%, transparent), transparent 28%),
+        linear-gradient(180deg, var(--paper), #fff 72%);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .wrap { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: color-mix(in srgb, var(--surface) 84%, transparent);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
+    .brand img { width: 190px; max-width: 42vw; height: auto; }
+    .brand-copy { border-left: 1px solid var(--line); padding-left: 14px; font-size: 13px; color: var(--muted); line-height: 1.25; display: none; }
+    .links { display: flex; align-items: center; gap: 18px; color: var(--muted); font-size: 14px; font-weight: 650; }
+    .links a:hover { color: var(--accent-strong); }
+    .theme-toggle { display: inline-flex; padding: 5px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); box-shadow: 0 12px 36px rgba(0,0,0,.06); }
+    .theme-toggle button { border: 0; border-radius: 999px; padding: 10px 14px; background: transparent; color: var(--muted); font-weight: 750; cursor: pointer; }
+    .theme-toggle button.active { background: var(--accent-strong); color: #fff; }
+
+    .hero { padding: 82px 0 58px; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.06fr) minmax(320px, .94fr); gap: 54px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 22px; color: var(--accent-strong); font-size: 14px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 34px; height: 2px; background: var(--gold); }
+    h1, h2, h3 { margin: 0; line-height: 1.05; text-wrap: balance; }
+    h1 { font-family: var(--font-display); font-size: clamp(42px, 6vw, 78px); letter-spacing: -.045em; max-width: 860px; }
+    body:not([data-theme="business"]) h1 { letter-spacing: -.035em; }
+    .lead { margin: 24px 0 0; max-width: 680px; color: var(--muted); font-size: clamp(18px, 2vw, 22px); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 14px 20px; border-radius: 999px; font-weight: 800; border: 1px solid transparent; transition: transform .18s ease, box-shadow .18s ease; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary { background: var(--accent-strong); color: #fff; box-shadow: 0 18px 42px color-mix(in srgb, var(--accent-strong) 26%, transparent); }
+    .btn.secondary { border-color: var(--line); background: var(--surface); color: var(--ink); }
+    .hero-card { position: relative; border-radius: calc(var(--radius) + 10px); overflow: hidden; background: var(--surface); box-shadow: var(--shadow); border: 1px solid rgba(255,255,255,.65); }
+    .hero-card img { width: 100%; height: min(620px, 68vh); object-fit: cover; object-position: center top; }
+    .hero-badge { position: absolute; left: 20px; right: 20px; bottom: 20px; padding: 18px; border-radius: 22px; background: rgba(255,255,255,.88); backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,.8); box-shadow: 0 20px 60px rgba(0,0,0,.14); }
+    .hero-badge strong { display: block; font-size: 18px; }
+    .hero-badge span { display: block; margin-top: 4px; color: var(--muted); }
+
+    .trust-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 34px; }
+    .trust { padding: 16px 18px; background: color-mix(in srgb, var(--surface) 78%, transparent); border: 1px solid var(--line); border-radius: 20px; }
+    .trust strong { display: block; font-size: 15px; }
+    .trust span { display: block; margin-top: 4px; color: var(--muted); font-size: 13px; }
+
+    section { padding: 72px 0; }
+    .section-head { display: grid; grid-template-columns: .8fr 1.2fr; gap: 32px; align-items: end; margin-bottom: 30px; }
+    .kicker { color: var(--accent-strong); font-weight: 850; letter-spacing: .08em; text-transform: uppercase; font-size: 13px; margin: 0 0 12px; }
+    h2 { font-family: var(--font-display); font-size: clamp(32px, 4vw, 54px); letter-spacing: -.035em; }
+    .section-head p { margin: 0; color: var(--muted); font-size: 18px; }
+
+    .offer-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 22px; }
+    .offer { position: relative; padding: 30px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); box-shadow: 0 22px 58px rgba(0,0,0,.06); overflow: hidden; }
+    .offer.feature { background: linear-gradient(135deg, var(--accent-strong), color-mix(in srgb, var(--accent-strong) 68%, #000)); color: #fff; min-height: 360px; }
+    .offer.feature p, .offer.feature li, .offer.feature .pill { color: rgba(255,255,255,.84); border-color: rgba(255,255,255,.26); }
+    .offer h3 { font-size: clamp(25px, 3vw, 38px); letter-spacing: -.025em; }
+    .offer p { color: var(--muted); font-size: 17px; margin: 16px 0 0; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
+    .pill { border: 1px solid var(--line); border-radius: 999px; padding: 8px 11px; color: var(--muted); font-size: 13px; font-weight: 750; }
+    .list { margin: 22px 0 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+    .list li { color: var(--muted); padding-left: 26px; position: relative; }
+    .list li::before { content: ""; position: absolute; left: 0; top: .7em; width: 9px; height: 9px; border-radius: 50%; background: var(--gold); }
+
+    .split { display: grid; grid-template-columns: .86fr 1.14fr; gap: 44px; align-items: center; }
+    .portrait-small { border-radius: var(--radius); overflow: hidden; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
+    .portrait-small img { width: 100%; max-height: 520px; object-fit: cover; object-position: center top; }
+    .copy-card { padding: 34px; border-radius: var(--radius); background: color-mix(in srgb, var(--surface) 86%, transparent); border: 1px solid var(--line); }
+    .copy-card p { color: var(--muted); font-size: 17px; margin: 16px 0 0; }
+
+    .process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .step { padding: 24px; border-radius: 24px; background: var(--surface); border: 1px solid var(--line); }
+    .num { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-soft); color: var(--accent-strong); display: grid; place-items: center; font-weight: 900; margin-bottom: 18px; }
+    .step h3 { font-size: 21px; }
+    .step p { margin: 10px 0 0; color: var(--muted); }
+
+    .contact { border-radius: calc(var(--radius) + 12px); background: var(--ink); color: #fff; padding: clamp(30px, 6vw, 58px); display: grid; grid-template-columns: 1.1fr .9fr; gap: 32px; align-items: center; overflow: hidden; position: relative; }
+    .contact::after { content: ""; position: absolute; width: 360px; height: 360px; border-radius: 50%; right: -110px; top: -130px; background: color-mix(in srgb, var(--accent) 38%, transparent); filter: blur(3px); }
+    .contact h2 { position: relative; z-index: 1; color: #fff; }
+    .contact p { position: relative; z-index: 1; color: rgba(255,255,255,.76); font-size: 18px; }
+    .contact-card { position: relative; z-index: 1; padding: 24px; border-radius: 24px; background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.16); backdrop-filter: blur(20px); }
+    .contact-card a, .contact-card span { display: block; color: #fff; font-weight: 800; margin: 10px 0; overflow-wrap: anywhere; }
+    footer { padding: 34px 0 54px; color: var(--muted); font-size: 14px; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+    body[data-theme="business"] .hero-grid { grid-template-columns: 1.12fr .88fr; }
+    body[data-theme="business"] .hero-card { border-radius: 24px; }
+    body[data-theme="business"] .hero-card img { filter: saturate(.92) contrast(1.02); }
+    body[data-theme="business"] .offer.feature { background: linear-gradient(135deg, #0d3b45, #1f7782); }
+    body[data-theme="business"] .trust-row { grid-template-columns: repeat(3, 1fr); }
+    body[data-theme="business"] .copy-card, body[data-theme="business"] .offer, body[data-theme="business"] .step { border-radius: 18px; }
+
+    @media (min-width: 960px) { .brand-copy { display: block; } }
+    @media (max-width: 900px) {
+      .links { display: none; }
+      .hero { padding-top: 48px; }
+      .hero-grid, .section-head, .offer-grid, .split, .contact { grid-template-columns: 1fr; }
+      .trust-row, .process { grid-template-columns: 1fr 1fr; }
+      .hero-card img { height: 520px; }
+    }
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 28px, 1160px); }
+      .nav { min-height: 70px; }
+      .theme-toggle button { padding: 9px 10px; font-size: 12px; }
+      .brand img { width: 158px; }
+      .trust-row, .process { grid-template-columns: 1fr; }
+      .hero-card img { height: 430px; }
+      .offer, .copy-card { padding: 24px; }
+      .hero-actions .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body data-theme="warm">
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Anne-Marie Menzel Startseite">
+        <img src="assets/logo-menzel.png" alt="Familienberatung Anne-Marie Menzel">
+        <span class="brand-copy">Psychotherapie · Beratung · BGM<br>in Würzburg und online</span>
+      </a>
+      <nav class="links" aria-label="Hauptnavigation">
+        <a href="#angebote">Angebote</a>
+        <a href="#bgm">BGM</a>
+        <a href="#ueber-mich">Über mich</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <div class="theme-toggle" aria-label="Design wechseln">
+        <button type="button" class="active" data-set-theme="warm">Warm</button>
+        <button type="button" data-set-theme="business">Business</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Anne-Marie Menzel · Würzburg</p>
+          <h1>Heilpraktikerin für Psychotherapie, Beratung & betriebliches Gesundheitsmanagement.</h1>
+          <p class="lead">Ein geschützter, klarer Rahmen für Menschen in persönlichen Krisen — und für Unternehmen, die seelische Gesundheit im Arbeitsalltag wirksam stärken möchten.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="mailto:kontakt@familienberatung-menzel.de">Erstgespräch anfragen</a>
+            <a class="btn secondary" href="tel:+4915146318968">0151 46318968</a>
+          </div>
+          <div class="trust-row" aria-label="Schwerpunkte">
+            <div class="trust"><strong>Psychotherapie</strong><span>nach dem Heilpraktikergesetz</span></div>
+            <div class="trust"><strong>BGM</strong><span>Impulse für gesunde Arbeit</span></div>
+            <div class="trust"><strong>Beratung</strong><span>für Familien & Lebenskrisen</span></div>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Portrait Anne-Marie Menzel">
+          <img src="assets/anne-marie-portrait.jpg" alt="Anne-Marie Menzel">
+          <div class="hero-badge">
+            <strong>Professionell, zugewandt, ressourcenorientiert.</strong>
+            <span>Begleitung für Einzelpersonen, Familien und Organisationen.</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="angebote">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Schwerpunkte</p>
+            <h2>Zwei zentrale Angebote — persönlich und organisational.</h2>
+          </div>
+          <p>Die neue Positionierung stellt Psychotherapie und betriebliches Gesundheitsmanagement klar in den Mittelpunkt. Familienberatung und Beratung in Lebenskrisen bleiben als ergänzende Leistungen sichtbar.</p>
+        </div>
+        <div class="offer-grid">
+          <article class="offer feature">
+            <p class="kicker" style="color:rgba(255,255,255,.76)">Für Einzelpersonen</p>
+            <h3>Psychotherapie nach dem Heilpraktikergesetz.</h3>
+            <p>Wenn innere Unruhe, Erschöpfung, Ängste, Selbstzweifel oder belastende Lebensphasen den Alltag schwer machen, entsteht Raum für Orientierung, Stabilisierung und neue Perspektiven.</p>
+            <ul class="list">
+              <li>geschützter Rahmen für persönliche Themen</li>
+              <li>ressourcenorientierte Begleitung in Krisen</li>
+              <li>auf Wunsch vor Ort, telefonisch oder per Video</li>
+            </ul>
+            <div class="pill-row">
+              <span class="pill">Stabilität</span><span class="pill">Klarheit</span><span class="pill">Entlastung</span>
+            </div>
+          </article>
+          <article class="offer" id="bgm">
+            <p class="kicker">Für Unternehmen</p>
+            <h3>Betriebliches Gesundheitsmanagement.</h3>
+            <p>Anne-Marie Menzel unterstützt Unternehmen dabei, psychische Gesundheit, Belastbarkeit und gesunde Kommunikation im Arbeitskontext greifbar zu machen.</p>
+            <ul class="list">
+              <li>Workshops und Impulse zu Stress, Resilienz und mentaler Gesundheit</li>
+              <li>Beratung für Führungskräfte und Teams bei Belastungssituationen</li>
+              <li>niedrigschwellige Angebote als Baustein im BGM</li>
+            </ul>
+            <div class="pill-row">
+              <span class="pill">Resilienz</span><span class="pill">Prävention</span><span class="pill">Teamgesundheit</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap offer-grid">
+        <article class="offer">
+          <p class="kicker">Ergänzend</p>
+          <h3>Familienberatung.</h3>
+          <p>Für Eltern und Familien, wenn Konflikte, psychische Belastungen, Lebensübergänge oder Unsicherheiten den Alltag prägen. Ziel ist mehr Orientierung, Verständnis und Stabilität im Familiensystem.</p>
+        </article>
+        <article class="offer">
+          <p class="kicker">Ergänzend</p>
+          <h3>Beratung in Lebenskrisen.</h3>
+          <p>Begleitung bei Stress, Erschöpfung, innerer Unruhe, Entscheidungen oder dem Gefühl, den eigenen Weg neu sortieren zu müssen.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="ueber-mich">
+      <div class="wrap split">
+        <div class="portrait-small">
+          <img src="assets/anne-marie-portrait.jpg" alt="Anne-Marie Menzel in ihrer Praxis">
+        </div>
+        <div class="copy-card">
+          <p class="kicker">Über Anne-Marie</p>
+          <h2>Fachlich klar. Menschlich nah.</h2>
+          <p>Anne-Marie Menzel ist Heilpädagogin und Heilpraktikerin für Psychotherapie. Ihre Erfahrung aus Frühförderung, Sozialpsychiatrie und Beratung bildet die Grundlage ihrer Arbeit mit Menschen und Organisationen.</p>
+          <p>Im Mittelpunkt stehen seelische Gesundheit, tragfähige Beziehungen und alltagstaugliche Schritte, die nicht überfordern, sondern stabilisieren.</p>
+          <div class="pill-row">
+            <span class="pill">Würzburg</span>
+            <span class="pill">Online möglich</span>
+            <span class="pill">ErgoBalance Praxis</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Ablauf</p>
+            <h2>In klaren Schritten zu mehr Stabilität.</h2>
+          </div>
+          <p>Der Beratungsprozess beginnt niedrigschwellig mit einem ersten Kennenlernen. Danach wird gemeinsam entschieden, welcher Rahmen sinnvoll ist.</p>
+        </div>
+        <div class="process">
+          <article class="step"><div class="num">1</div><h3>Ankommen</h3><p>Sie schildern, was aktuell belastet oder was sich verändern soll.</p></article>
+          <article class="step"><div class="num">2</div><h3>Sortieren</h3><p>Themen, Ziele und passende Form der Begleitung werden geklärt.</p></article>
+          <article class="step"><div class="num">3</div><h3>Stabilisieren</h3><p>Ressourcen, Strategien und neue Perspektiven werden aufgebaut.</p></article>
+          <article class="step"><div class="num">4</div><h3>Übertragen</h3><p>Die Erkenntnisse sollen im Alltag, in Familie oder Organisation wirken.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="wrap contact">
+        <div>
+          <p class="kicker" style="color:rgba(255,255,255,.72)">Kontakt</p>
+          <h2>Ein erstes Gespräch klärt meistens schnell, welcher nächste Schritt sinnvoll ist.</h2>
+          <p>Für Einzelpersonen, Familien oder Unternehmen mit Interesse an BGM-Angeboten.</p>
+        </div>
+        <div class="contact-card">
+          <span>Anne-Marie Menzel</span>
+          <span>Leistenstraße 2, 97082 Würzburg</span>
+          <a href="mailto:kontakt@familienberatung-menzel.de">kontakt@familienberatung-menzel.de</a>
+          <a href="tel:+4915146318968">0151 46318968</a>
+          <span>Instagram: familienberatung_menzel</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Anne-Marie Menzel</span>
+      <span>Testseite · Inhalte auf Basis der bestehenden Website neu strukturiert</span>
+    </div>
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll('[data-set-theme]');
+    const saved = localStorage.getItem('anneMarieTheme');
+    function setTheme(theme) {
+      document.body.dataset.theme = theme;
+      localStorage.setItem('anneMarieTheme', theme);
+      buttons.forEach(btn => btn.classList.toggle('active', btn.dataset.setTheme === theme));
+    }
+    buttons.forEach(btn => btn.addEventListener('click', () => setTheme(btn.dataset.setTheme)));
+    if (saved === 'business') setTheme('business');
+  </script>
+</body>
+</html>
